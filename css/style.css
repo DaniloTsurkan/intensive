@@ -1,0 +1,295 @@
+@import url("reset.css");
+
+@import url("https://fonts.googleapis.com/css?family=Cormorant:regular,500,600,700&display=swap");
+
+
+@font-face {
+	font-family: 'Futura';
+	src: url('../fonts/FuturaPT-Medium.woff') format('woff');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Futura';
+	src: url('../fonts/FuturaPT-Bold.woff') format('woff');
+	font-weight: bold;
+	font-style: normal;
+	font-display: swap;
+}
+
+body {
+	font-family: Cormorant;
+}
+
+body.lock {
+	overflow: hidden;
+}
+
+[class*="__container"] {
+	max-width: 1170px;
+	margin: 0 auto;
+}
+
+@media (max-width: 1199.98px) {
+	[class*="__container"] {
+		max-width: 970px;
+	}
+}
+
+@media (max-width: 991.98px) {
+	[class*="__container"] {
+		max-width: 750px;
+	}
+}
+
+@media (max-width: 767.98px) {
+	[class*="__container"] {
+		max-width: none;
+		padding: 0 15px;
+	}
+}
+
+
+.header {
+	padding-top: 100px;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	background-color: #A387C4;
+	color: #fff;
+}
+
+.header__container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.header__logo {
+	max-width: 129px;
+	font-family: Futura;
+}
+
+.header__menu {}
+
+.menu-header {
+	transition: all 0.5s ease 0s;
+}
+
+.menu-header__items {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 27px;
+}
+
+@media (max-width:767.98px) {
+	.menu-header {
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		top: 140px;
+		padding-top: 50px;
+		left: -100%;
+		background-color: #4C3D74;
+	}
+
+	.menu-header__items {
+		flex-direction: column;
+	}
+}
+
+.menu-header__item {}
+
+.menu-header__link {
+	font-family: Futura;
+}
+
+.menu__icon {
+	display: none;
+}
+
+@media (max-width: 767.98px) {
+
+
+	.menu-header.active {
+		left: 0;
+	}
+
+	.menu__icon {
+		z-index: 555;
+		display: block;
+		position: relative;
+		width: 30px;
+		height: 18px;
+	}
+
+	.menu__icon span,
+	.menu__icon::before,
+	.menu__icon::after {
+		position: absolute;
+		left: 0;
+		height: 2px;
+		width: 100%;
+		transition: all 0.3s ease 0s;
+		background-color: #fff;
+	}
+
+	.menu__icon::before,
+	.menu__icon::after {
+		content: "";
+	}
+
+	.menu__icon::before {
+		top: 0;
+	}
+
+	.menu__icon::after {
+		bottom: 0;
+	}
+
+	.menu__icon span {
+		top: 50%;
+		transform: scale(1) translate(0px, -50%);
+	}
+
+
+	.menu__icon.active span {
+		transform: scale(0);
+	}
+
+	.menu__icon.active::before {
+		top: 50%;
+		transform: translate(0px, -50%) rotate(-45deg);
+	}
+
+	.menu__icon.active::after {
+		bottom: 50%;
+		transform: translate(0px, 50%) rotate(45deg);
+	}
+}
+
+
+.main {
+	padding-top: 247px;
+	background-color: #4C3D74;
+	color: #fff;
+	font-family: Futura;
+}
+
+.main__container {}
+
+.main__body {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+@media (max-width: 991.98px) {
+	.main__body {
+		flex-direction: column;
+	}
+}
+
+.main__content {}
+
+.main__top-title {
+	font-size: 20px;
+	font-weight: 700;
+}
+
+.main__top-title:not(:last-child) {
+	margin-bottom: 19px;
+}
+
+.main__title {
+	font-size: 50px;
+	font-weight: 700;
+}
+
+.main__title:not(:last-child) {
+	margin-bottom: 29px;
+}
+
+.main__sub-title {
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 150%;
+	/* 30/20 */
+}
+
+@media (max-width:467.98px) {
+	.main__top-title {
+		font-size: 16px;
+	}
+
+	.main__title {
+		font-size: 20px;
+	}
+
+	.main__sub-title {
+		font-size: 16px;
+	}
+}
+
+.main__sub-title:not(:last-child) {
+	margin-bottom: 44px;
+}
+
+.main__buttons {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 24px;
+}
+
+
+.main__button {
+	border-radius: 30px;
+	background-color: #A387C4;
+	padding: 20px 64px;
+}
+
+.bg-button {
+	background: none;
+	border: 3px solid #a387c4;
+}
+
+.main__image {
+	position: relative;
+}
+
+.main__image img {
+	width: 100%;
+	height: 100%;
+}
+
+.main__image::after {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-color: #A387C4;
+	filter: blur(400px);
+}
+
+@media (max-width: 767.98px) {
+	.main__buttons {
+		flex-direction: column;
+	}
+
+	.main__button {
+		width: 100%;
+		text-align: center;
+		padding: 10px 34px;
+
+	}
+}
